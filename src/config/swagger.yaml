@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Registration
+  description: multi-step-form API
+  version: 0.1.9
+
+servers:
+  - url: http://localhost:3000/api
+    description: local server
+paths:
+  /registration:
+    post:
+      tags:
+        - Registration
+      requestBody:
+        description: create Registration
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                plan:
+                  type: string
+                price:
+                  type: string
+                payment:
+                  type: string
+                ads:
+                  type: [string]
+            example:
+              name: ilo
+              email: stephenking@lorem.com
+              phone: "595433456"
+              plan: Arcade
+              price: $9
+              payment: monthly
+              ads: ["online service", "larger storage"]
+      responses:
+        "200":
+          description: registration created
